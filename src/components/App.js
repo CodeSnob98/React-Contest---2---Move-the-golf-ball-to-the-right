@@ -17,7 +17,6 @@ class App extends Component {
   //call back function
   buttonClickHandler() {
     this.setState({ renderBall: true });
-    document.addEventListener("keyDown", this.componentDidMount);
     console.log("clickhandler");
   }
   renderChoice() {
@@ -31,6 +30,7 @@ class App extends Component {
   }
   //bind ArrowRight keydown event
   componentDidMount(e) {
+    document.addEventListener("keyDown", this.componentDidMount);
     if (e.keyCode === 39) {
       this.setState({
         ballPosition: {
