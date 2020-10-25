@@ -10,7 +10,7 @@ class App extends Component {
     };
     this.renderChoice = this.renderChoice.bind(this);
     this.buttonClickHandler = this.buttonClickHandler.bind(this);
-    this.handleRightArrow = this.handleArrow.bind(this);
+    this.handleArrow = this.handleArrow.bind(this);
   }
 
   //call back function
@@ -32,9 +32,7 @@ class App extends Component {
 
   //bind ArrowRight keydown event
   componentDidMount() {
-    document.body.addEventListener("keydown", (event) =>
-      this.handleArrow(event)
-    );
+    document.addEventListener("keydown", (event) => this.handleArrow(event));
   }
 
   handleArrow(event) {
