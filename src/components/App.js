@@ -1,6 +1,5 @@
 import React, { Component, useState } from "react";
 import "../styles/App.css";
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -11,14 +10,16 @@ class App extends Component {
     };
     this.renderChoice = this.renderChoice.bind(this);
     this.buttonClickHandler = this.buttonClickHandler.bind(this);
-    console.log("constructor");
+    this.handleRightArrow = this.handleArrow.bind(this);
   }
 
   //call back function
   buttonClickHandler() {
-    this.setState({ renderBall: true });
-    console.log("clickhandler");
+    this.setState({
+      renderBall: true
+    });
   }
+
   renderChoice() {
     if (this.state.renderBall) {
       return <div className="ball" style={this.state.ballPosition}></div>;
@@ -28,17 +29,22 @@ class App extends Component {
       );
     }
   }
+
   //bind ArrowRight keydown event
-  componentDidMount(e) {
-    document.addEventListener("keyDown", this.componentDidMount);
-    if (e.keyCode === 39) {
+  componentDidMount() {
+    document.body.addEventListener("keydown", (event) =>
+      this.handleArrow(event)
+    );
+  }
+
+  handleArrow(event) {
+    if (event.keyCode === 39) {
       this.setState({
         ballPosition: {
           left: +this.state.ballPosition.left.split("px")[0] + 5 + "px"
         }
       });
     }
-    console.log("right");
   }
 
   render() {
