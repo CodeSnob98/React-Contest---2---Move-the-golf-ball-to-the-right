@@ -34,12 +34,12 @@ class App extends Component {
   }
 
   //bind ArrowRight keydown event
-  componentDidMount(event) {
-    if (event.keyCode === 39) {
+  componentDidMount(e) {
+    /*if (e.keyCode === 39) {
       this.setState({
         ballPosition: { left: this.state.ballPosition.left + 5 }
       });
-    }
+    }*/
   }
 
   render() {
