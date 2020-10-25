@@ -34,7 +34,7 @@ class App extends Component {
     if (e.keyCode === 39) {
       this.setState({
         ballPosition: {
-          left: this.state.ballPosition.left.split("px")[0] + 5 + "px"
+          left: +this.state.ballPosition.left.split("px")[0] + 5 + "px"
         }
       });
     }
