@@ -33,7 +33,9 @@ class App extends Component {
   componentDidMount(e) {
     if (e.keyCode === 39) {
       this.setState({
-        ballPosition: { left: this.state.ballPosition.left + 5 }
+        ballPosition: {
+          left: this.state.ballPosition.left.split("px")[0] + 5 + "px"
+        }
       });
     }
     console.log("right");
